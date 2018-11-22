@@ -15,6 +15,8 @@ import br.com.agenda.api.model.Contato;
 @Repository
 public interface ContatoRepository extends JpaRepository<Contato, Long> {
 
+	public Contato findByNome(String nome);
 	
+	public Contato findByEmail(String email);
 	
 }
