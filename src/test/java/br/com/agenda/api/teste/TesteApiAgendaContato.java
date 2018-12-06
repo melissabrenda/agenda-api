@@ -14,7 +14,7 @@ import br.com.agenda.api.AgendaApiApplication;
 import br.com.agenda.api.model.Contato;
 
 /**
- * @author carlosbarbosagomesfilho
+ * @author melissabrenda
  *
  */
 @RunWith(SpringRunner.class)

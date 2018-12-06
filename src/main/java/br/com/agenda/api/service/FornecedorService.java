@@ -1,6 +1,3 @@
-/**
- * 
- */
 package br.com.agenda.api.service;
 
 import java.util.List;
@@ -8,57 +5,53 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import br.com.agenda.api.model.Contato;
-import br.com.agenda.api.repository.ContatoRepository;
-
-/**
- * @author melisabrenda
- */
+import br.com.agenda.api.model.Fornecedor;
+import br.com.agenda.api.repository.FornecedorRepository;
 
 @Service
-public class ContatoService {
+public class FornecedorService {
+ 
 
 	@Autowired
-	private ContatoRepository repository;
+	private FornecedorRepository repository;
 	
 	@Transactional
-	public void save(Contato contato) {
-		this.repository.save(contato);
+	public void save(Fornecedor fornecedor) {
+		this.repository.save(fornecedor);
 	}
 	
 	@Transactional(readOnly=true)
-	public List<Contato> listContatos(){
+	public List<Fornecedor> listFornecedores(){
 		return this.repository.findAll();
 	}
 	
 	@Transactional
-	public void removeContato(Contato contato) {
-		this.repository.delete(contato);
+	public void removeFornecedor(Fornecedor fornecedor) {
+		this.repository.delete(fornecedor);
 	}
 	
 	@Transactional
-	public void removeContatoById(Long id) {
+	public void removeFornecedorById(Long id) {
 		this.repository.deleteById(id);
 	}
 	
 	@Transactional
-	public void updateContato(Contato contato) {
-		this.repository.saveAndFlush(contato);
+	public void updateFornecedor(Fornecedor fornecedor) {
+		this.repository.saveAndFlush(fornecedor);
 	}
 	
 	@Transactional(readOnly=true)
-	public Contato getById(Long id) {
+	public Fornecedor getById(Long id) {
 		return this.repository.getOne(id);
 	}
 	
 	@Transactional(readOnly=true)
-	public Contato buscaPorNome(String nome) {
+	public Fornecedor buscaPorNome(String nome) {
 		return this.repository.findByNome(nome);
 	}
 	
 	@Transactional(readOnly=true)
-	public Contato buscaPorEmail(String email) {
+	public Fornecedor buscaPorEmail(String email) {
 		return this.repository.findByEmail(email);
 	}
 }
