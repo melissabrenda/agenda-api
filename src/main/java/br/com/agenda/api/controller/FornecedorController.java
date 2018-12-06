@@ -12,9 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agenda.api.model.Fornecedor;
 import br.com.agenda.api.service.FornecedorService;
+
+@RestController
+@RequestMapping("/api")
 
 
 public class FornecedorController {
@@ -58,7 +63,7 @@ public class FornecedorController {
 	}
 	
 
-	@GetMapping("/buscarPorEmail/{email}")
+	@GetMapping("/fornecedores/buscarPorEmail/{email}")
 	public Fornecedor buscaPorEmail(@PathVariable String email) {
 		Fornecedor fornecedor = this.service.buscaPorEmail(email);
 		return fornecedor;

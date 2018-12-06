@@ -12,9 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agenda.api.model.Cliente;
 import br.com.agenda.api.service.ClienteService;
+
+@RestController
+@RequestMapping("/api")
 
 
 public class ClienteController {
@@ -58,7 +63,7 @@ public class ClienteController {
 	}
 	
 
-	@GetMapping("/buscarPorEmail/{email}")
+	@GetMapping("/clientes/buscarPorEmail/{email}")
 	public Cliente buscaPorEmail(@PathVariable String email) {
 		Cliente cliente = this.service.buscarPorEmail(email);
 		return cliente;
